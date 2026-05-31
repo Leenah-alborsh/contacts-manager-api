@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MyContacts</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="min-h-screen bg-slate-100 text-slate-900">
+    <main class="mx-auto w-[min(1120px,calc(100%-32px))] py-8">
+      <section class="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <div>
+          <p class="mb-1 text-sm font-bold uppercase text-blue-600">Contacts Manager</p>
+          <h1 class="text-4xl font-bold tracking-normal">MyContacts</h1>
+        </div>
+        <div
+          class="min-w-32 rounded-full border border-emerald-200 bg-emerald-50 px-4 py-2 text-center text-sm font-bold text-emerald-700"
+          id="statusText"
+        >
+          Ready
+        </div>
+      </section>
+
+      <section class="grid gap-5 lg:grid-cols-[340px_1fr]">
+        <form
+          class="grid gap-3 rounded-lg border border-slate-200 bg-white p-5 shadow-xl shadow-slate-200/70"
+          id="contactForm"
+        >
+          <input type="hidden" id="contactId" />
+
+          <div class="mb-2 flex items-center justify-between gap-3">
+            <h2 class="text-xl font-bold" id="formTitle">Add Contact</h2>
+            <button
+              class="min-h-10 rounded-md border border-slate-200 bg-blue-50 px-3 font-bold text-blue-700 hover:bg-blue-100"
+              type="button"
+              id="resetButton"
+            >
+              Clear
+            </button>
+          </div>
+
+          <label class="text-sm font-bold text-slate-500" for="name">Name</label>
+          <input
+            class="min-h-11 rounded-md border border-slate-300 bg-slate-50 px-3 outline-none focus:border-blue-600 focus:ring-4 focus:ring-blue-100"
+            id="name"
+            name="name"
+            type="text"
+            placeholder="Leenah"
+            required
+          />
+
+          <label class="text-sm font-bold text-slate-500" for="email">Email</label>
+          <input
+            class="min-h-11 rounded-md border border-slate-300 bg-slate-50 px-3 outline-none focus:border-blue-600 focus:ring-4 focus:ring-blue-100"
+            id="email"
+            name="email"
+            type="email"
+            placeholder="leenah@email.com"
+            required
+          />
+
+          <label class="text-sm font-bold text-slate-500" for="phone">Phone</label>
+          <input
+            class="min-h-11 rounded-md border border-slate-300 bg-slate-50 px-3 outline-none focus:border-blue-600 focus:ring-4 focus:ring-blue-100"
+            id="phone"
+            name="phone"
+            type="text"
+            placeholder="0569156133"
+            required
+          />
+
+          <button
+            class="mt-2 min-h-10 rounded-md bg-blue-600 font-bold text-white hover:bg-blue-700"
+            type="submit"
+            id="submitButton"
+          >
+            Save Contact
+          </button>
+        </form>
+
+        <section class="overflow-hidden rounded-lg border border-slate-200 bg-white shadow-xl shadow-slate-200/70">
+          <div class="flex items-center justify-between gap-3 border-b border-slate-200 p-5">
+            <div>
+              <h2 class="text-xl font-bold">Contacts</h2>
+              <p class="mt-1 text-sm text-slate-500" id="contactsCount">0 saved contacts</p>
+            </div>
+            <button
+              class="min-h-10 rounded-md border border-slate-200 bg-blue-50 px-3 font-bold text-blue-700 hover:bg-blue-100"
+              type="button"
+              id="refreshButton"
+            >
+              Refresh
+            </button>
+          </div>
+
+          <div class="w-full overflow-x-auto">
+            <table class="w-full min-w-[640px] border-collapse">
+              <thead>
+                <tr class="bg-slate-50">
+                  <th class="border-b border-slate-200 px-4 py-3 text-left text-xs font-bold uppercase text-slate-500">
+                    Name
+                  </th>
+                  <th class="border-b border-slate-200 px-4 py-3 text-left text-xs font-bold uppercase text-slate-500">
+                    Email
+                  </th>
+                  <th class="border-b border-slate-200 px-4 py-3 text-left text-xs font-bold uppercase text-slate-500">
+                    Phone
+                  </th>
+                  <th class="border-b border-slate-200 px-4 py-3 text-left text-xs font-bold uppercase text-slate-500">
+                    Actions
+                  </th>
+                </tr>
+              </thead>
+              <tbody id="contactsTable"></tbody>
+            </table>
+          </div>
+
+          <div class="hidden px-5 py-8 text-center text-slate-500" id="emptyState">No contacts yet</div>
+        </section>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
