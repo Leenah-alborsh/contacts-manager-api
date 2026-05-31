@@ -7,7 +7,7 @@
   "type": "commonjs",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "node --check server.js && node --check Config/dbConection.js && node --check Models/contactModel.js && node --check controllers/contactController.js && node --check middleware/errorHandler.js && node --check routes/contactRoutes.js && node --check public/app.js",
     "start": "node server.js",
     "dev": "nodemon server.js"
   },
